@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  background-image: url("https://images.pexels.com/photos/4993107/pexels-photo-4993107.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  font-family: smoothy,sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
