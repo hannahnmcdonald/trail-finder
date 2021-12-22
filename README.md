@@ -1,4 +1,4 @@
-![Welcome to Trail Finder](./img/logotransparent.png)
+![Welcome to Trail Finder](./img/logocolor.png)
 
 Welcome to Trail Finder!
 
