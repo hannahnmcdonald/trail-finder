@@ -1,10 +1,10 @@
 ![Welcome to Trail Finder](./img/logocolor.png)
 
-Welcome to Trail Finder!
-
-Trail Finder is a MERN stack hiking app using a third-party API. User can request trails by their zip code as well as driving distance requested and will receive hiking trails accordingly. User can sign up or login in to save their trails, as well as rate their favorites. 
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+# Welcome to Trail Finder!
+
+## Trail Finder is a MERN stack hiking app using a third-party API. User can request trails by their zip code as well as driving distance requested and will receive hiking trails accordingly. User can sign up or login in to save their trails, as well as rate their favorites. 
 
 
 ## Table of Contents
