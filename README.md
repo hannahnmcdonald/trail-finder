@@ -10,6 +10,8 @@
 
 1. [Technologies and Skills](#technologies)
 
+1. [Database Model & Design](#database)
+
 1. [Screenshots](#screenshots)
 
 1. [Installation](#installation)
@@ -36,12 +38,14 @@ Technologies and Skills
 * Express
 * React
 * Node
-* JWT
+* [JWT](jwt.io)
 * Apollo
 * GraphQL
 * Material UI
 * [Trail API](https://rapidapi.com/trailapi/api/trailapi)
 * [Express Validator](https://express-validator.github.io/docs/)
+
+## <a id="database"></a>Database Model & Design
 
 
 ## <a id="screenshot"></a>Screenshots
