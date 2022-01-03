@@ -28,7 +28,7 @@
 
   
 
-## <a id="technologies"></a>Technologies and Skills Demonstrated
+## <a id="technologies"></a>Technologies and Skills
 
 Project Methodology
 * Github Project Management using SCRUM Methodology

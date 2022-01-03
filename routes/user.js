@@ -2,10 +2,11 @@ const express = require('express');
 const router = express.Router();
 // Express Validator for forms
 const { check, validationResult } = require('express-validator');
-// Bring in Gravatar
 const gravatar = require('gravatar');
-// Bring in bcrypt
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+// bring in config for jwt secret
+const config = require('config');
 
 // Require in user model
 const User = require('../models/User')
@@ -33,7 +34,7 @@ router.post('/', [
 ],
     async (req,res) => {
     // console.log(req.body)
-    // Declare constant of errors set to the validation result
+        // Declare constant of errors set to the validation result
     const errors = validationResult(req)
     // If errors, return 400 error and error array in JSON
     if(!errors.isEmpty()) {
@@ -54,7 +55,7 @@ router.post('/', [
                 });
             }
         // GET User's gravatar
-        // Gravatar settings
+            // Gravatar settings
         const avatar = gravatar.url(email, {
             // img size
             s: '200',
@@ -71,21 +72,37 @@ router.post('/', [
             password
         });
         // Need to encrypt password before saving it to db
-        // create salt
+            // create salt
         const salt = await bcrypt.genSalt(10);
         // hash password. Takes in plain text password and salt
         user.password = await bcrypt.hash(password, salt);
         // Save to db
-        // Returns promise so await
+            // Returns promise so await
         await user.save();
-        // TO DO: Return JSON Web token
-
-        res.send('User Registered')
+        // Return JSON Web token
+        const payload = {
+            user: {
+                // abstraction of _id from mongoose
+                id: user.id
+            }
+        }
+        // Bring in JWTSecret from config
+        jwt.sign(
+            payload, 
+            config
+                .get('jwtSecret'),
+            {expiresIn: 360000 },
+            (err, token) => {
+                if(err) throw err;
+                res.json({ token });
+            }
+        );
+        // res.send('User Registered')
     } catch(err) {
         console.error(err.message);
-        res
-            .status(500)
-            .send('Server Error');
+            res
+                .status(500)
+                .send('Server Error');
         }
     }
 );
