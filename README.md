@@ -41,6 +41,7 @@ Technologies and Skills
 * GraphQL
 * Material UI
 * [Trail API](https://rapidapi.com/trailapi/api/trailapi)
+* [Express Validator](https://express-validator.github.io/docs/)
 
 
 ## <a id="screenshot"></a>Screenshots
