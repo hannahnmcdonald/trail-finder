@@ -6,4 +6,10 @@ const router = express.Router();
 // @access Public
 router.get('/', (req,res) => res.send('User Route'));
 
+//POST
+router.post('/', (req,res) => {
+    console.log(req.body)
+    res.send('User Route')
+});
+
 module.exports = router;
