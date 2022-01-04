@@ -1,4 +1,4 @@
-![Welcome to Trail Finder](./img/logo.png)
+![Welcome to Trail Finder](./img/logo2.png)
 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
