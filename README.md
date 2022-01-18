@@ -77,4 +77,4 @@ Contact me at hannahcodes@protonmail.com 📫 or through my Github profile [here
 
 ## <a id="sample"></a>Link to Heroku Deployment
 
-- [Experience Trail Finder for Yourself]()
+- [Experience Trail Finder for Yourself]() IN PROGRESS- Not deployed yet
