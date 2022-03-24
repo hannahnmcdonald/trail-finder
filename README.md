@@ -47,9 +47,6 @@ Technologies and Skills
 * React
 * Node
 * [JWT](jwt.io)
-* Apollo
-* GraphQL
-* Material UI
 * [Trail API](https://rapidapi.com/trailapi/api/trailapi)
 * [Express Validator](https://express-validator.github.io/docs/)
 
