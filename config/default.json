@@ -1,4 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://hannahnmcdonald:hannah123@cluster0.pkuhw.mongodb.net/trailfinder?retryWrites=true&w=majority",
+    "mongoURI": "mongodb+srv://hannahnmcdonald:hannah123@cluster0.pkuhw.mongodb.net/?retryWrites=true&w=majority",
     "jwtSecret": "supersecretsecret"
 }
