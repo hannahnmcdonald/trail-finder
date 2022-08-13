@@ -1,81 +1,36 @@
+// Imports
+const axios = require("axios");
+const { response } = require("express");
 // Declare variables
 var ZIP_KEY = process.env.ZIP_API_KEY
 var TRAIL_KEY = process.env.TRAIL_API_KEY
+var RAPID_KEY = process.env.RAPID_KEY
 
 // Use Zip code API to convert zip code to lat and long to pass into trail api
-
-function getLocation() {
-    
-    // Zip Code entered by User
-    var ZIPCODE = zipSearch.value;
-
-    // If none entered, alert user
-    if (!ZIPCODE) {
-        window.alert('Please enter a zip code!');
-    }
-
-    var locationUrl =`https://www.zipcodeapi.com/rest/${ZIP_KEY}/info.json/${ZIPCODE}/degrees`
-    
-    // TEST: console.log(ZIPCODE);
-    
-    fetch(locationUrl).then(function (response) {
-        if (!response.ok) {
-            console.log(response.status);
-        }
-
-        return response.json();
-
-    }).then(function (data) {
-        console.log("data", data);
-        if (data.count < 5) {
-            window.alert("this is not a valid zipcode!");
-        }
-
-        // API DATA:
-        var LAT = data.lat;
-        var LON = data.lng;
-
-        // Pass into next fx
-        searchTrails(LAT, LON);
-
-    }).catch(function() {
-        window.alert("Something went wrong");
-    });
-
+const zipOptions = {
+    method: 'GET',
+    url: `https://www.zipcodeapi.com/rest/${ZIP_KEY}/info.json/${zipCode}/degrees`
 }
 
-function searchTrails (LAT, LON) {
+axios.request(zipOptions).then(function (response) {
+	console.log(response.data);
+}).catch(function (error) {
+	console.error(error);
+});
 
-    fetch(`https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat=${LAT}&lon=${LON}`, {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-host": "trailapi-trailapi.p.rapidapi.com",
-            "x-rapidapi-key": TRAIL_KEY
-        }
-    })
-    .then(response => {
-        console.log(response);
+// Use trail api to retrieve trails with lat and lon
+const options = {
+  method: 'GET',
+  url: 'https://trailapi-trailapi.p.rapidapi.com/trails/explore/',
+  params: {lat: response.data.lat, lon: response.data.lon},
+  headers: {
+    'X-RapidAPI-Key': TRAIL_KEY,
+    'X-RapidAPI-Host': RAPID_KEY
+  }
+};
 
-        const returnedTrailData = data.data;
-        // API DATA:
-        const trailData = returnedTrailData.map((data) => ({
-            ID = data.id,
-            LAT = data.lat,
-            LON = data.lng,
-            NAME = data.name,
-            URL = data.url, 
-            LENGTH = data.length,
-            DESC = data.description,
-            DIRECTIONS = data.directions,
-            CITY = data.city,
-            REG = data.region,
-            DIF = data.difficulty,
-            FEAT = data.features,
-            RATING = data.rating,
-            PIC = data.thumbnail
-        }));
-    })
-    .catch(err => {
-        console.error(err);
-    });
-}
+axios.request(options).then(function (response) {
+	console.log(response.data);
+}).catch(function (error) {
+	console.error(error);
+});
