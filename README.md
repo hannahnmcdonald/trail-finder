@@ -41,10 +41,7 @@
 
 ## <a id="technologies"></a>Technologies and Skills
 
-Project Methodology
-* Github Project Management using SCRUM Methodology
-
-Technologies and Skills
+Technologies:
 * MongoDb
 * Express
 * React
